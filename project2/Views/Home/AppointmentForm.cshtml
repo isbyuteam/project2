@@ -1,27 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Appointment Form";
+    ViewData["Title"] = "Schedule Appointment";
 }
 
 @model project2.Models.AppointmentForm
 
-<h1>Make an Appointment:</h1>
+<h1>Schedule Appointment</h1>
 
-<div>
-    <form method="post">
-        <div asp-validation-summary="All"></div>
+<form method="post">
+    <div asp-validation-summary="All"></div>
 
-        <label asp-for="GroupName">Group Name:</label>
-        <input asp-for="GroupName" /><br />
+    <div class="form-group">
+        <label asp-for="GroupName">Group Name</label>
+        <input asp-for="GroupName" class="form-control" />
+    </div>
 
-        <label asp-for="GroupSize">Group Size:</label>
-        <input asp-for="GroupSize" /><br />
+    <div class="form-group">
+        <label asp-for="GroupSize">Group Size</label>
+        <input asp-for="GroupSize" class="form-control" />
+    </div>
 
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" /><br />
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
 
-        <label asp-for="Phone">Rating:</label>
-        <input asp-for="Phone"></ br>
+    <div class="form-group">
+        <label asp-for="Phone">Phone Number</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
 
-        <button type="submit" class="btn btn-primary">Submit Appointment</button>
-    </form>
-</div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

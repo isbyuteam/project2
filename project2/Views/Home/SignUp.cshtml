@@ -4,29 +4,26 @@
 
 @model TimeSlot
 
-<div class="card card-outline-primary m-1 p-1">
-    <div class="bg-light p-1">
-        <form method="post" asp-page="/AppointmentForm">
-            <input type="hidden" asp-for="@Model.TimeSlotID" />
-            @*<input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />*@
+<h1>Sign Up</h1>
 
-            <h3> Select a Time </h3>
-            <span class="card-text">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">8 A.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">9 A.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">10 A.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">11 A.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">12 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">1 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">2 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">3 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">4 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">5 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">6 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">7 P.M.</button>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">8 P.M.</button>
-            </span>
-        </form>
-    </div>
-</div>
+<form class="pt-2" method="post" asp-page="/AppointmentForm">
+    <input type="hidden" asp-for="@Model.TimeSlotID" />
 
+    @*<input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />*@
+
+    <span class="card-text">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">8 A.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">9 A.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">10 A.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">11 A.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">12 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">1 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">2 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">3 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">4 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">5 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">6 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">7 P.M.</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">8 P.M.</button>
+    </span>
+</form>
