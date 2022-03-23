@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using project2.Models;
 
@@ -11,11 +12,11 @@ namespace project2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private AppointmentFormContext moneyContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AppointmentFormContext someName)
         {
-            _logger = logger;
+            moneyContext = someName;
         }
 
         public IActionResult Index()
@@ -26,6 +27,16 @@ namespace project2.Controllers
         public IActionResult SignUp()
         {
             return View();
+        }
+
+        public IActionResult AppointmentsList()
+        {
+            var appointments = moneyContext.Responses
+                .Include(x => x.TimeSlot)
+                .OrderBy(x => x.TimeSlot.AppointmentTime)
+                .ToList();
+
+            return View(appointments);
         }
 
         [HttpGet]
@@ -47,6 +58,42 @@ namespace project2.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int appointmentid)
+        {
+            ViewBag.TimeSlots = moneyContext.TimeSlots.ToList();
+
+            var appointment = moneyContext.Responses.Single(x => x.AppointmentID == appointmentid);
+
+            return View("AppointmentForm", appointment);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(AppointmentForm af)
+        {
+            moneyContext.Update(af);
+            moneyContext.SaveChanges();
+
+            return RedirectToAction("AppointmentsList");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int appointmentid)
+        {
+            var appointment = moneyContext.Responses.Single(x => x.AppointmentID == appointmentid);
+
+            return View(appointment);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(AppointmentForm af)
+        {
+            moneyContext.Responses.Remove(af);
+            moneyContext.SaveChanges();
+
+            return RedirectToAction("AppointmentsList");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

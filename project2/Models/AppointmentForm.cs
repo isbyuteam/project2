@@ -8,6 +8,7 @@ namespace project2.Models
         [Key]
         [Required]
         public int AppointmentID { get; set; }
+
         [Required(ErrorMessage = "Group name is Required")]
         public string GroupName { get; set; }
         [Required(ErrorMessage = "Size of group is Required")]
@@ -16,5 +17,9 @@ namespace project2.Models
         [Required(ErrorMessage = "Email is Required")]
         public string Email { get; set; }
         public string Phone { get; set; }
+
+        //Build Foreign Key Relationship
+        public int TimeSlotID { get; set; }
+        public TimeSlot TimeSlot { get; set; }
     }
 }
