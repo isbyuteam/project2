@@ -28,9 +28,25 @@ namespace project2.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult AppointmentForm()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AppointmentForm(AppointmentForm ar)
+        {
+            if (ModelState.IsValid)
+            {
+                //FormContext.Add(ar);
+                //FormContext.SaveChanges();
+                return Index();
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
