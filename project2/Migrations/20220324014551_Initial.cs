@@ -12,7 +12,8 @@ namespace project2.Migrations
                 {
                     TimeSlotID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    AppointmentTime = table.Column<string>(nullable: false)
+                    AppointmentTime = table.Column<string>(nullable: false),
+                    IsTaken = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,68 +45,68 @@ namespace project2.Migrations
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 8, "8:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 1, "8:00 AM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 9, "9:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 2, "9:00 AM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 10, "10:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 3, "10:00 AM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 11, "11:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 4, "11:00 AM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 12, "12:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 5, "12:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 13, "1:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 6, "1:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 14, "2:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 7, "2:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 15, "3:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 8, "3:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 16, "4:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 9, "4:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 17, "5:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 10, "5:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 18, "6:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 11, "6:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 19, "7:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 12, "7:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "TimeSlots",
-                columns: new[] { "TimeSlotID", "AppointmentTime" },
-                values: new object[] { 20, "8:00" });
+                columns: new[] { "TimeSlotID", "AppointmentTime", "IsTaken" },
+                values: new object[] { 13, "8:00 PM", false });
 
             migrationBuilder.InsertData(
                 table: "Responses",

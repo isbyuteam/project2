@@ -8,7 +8,7 @@ using project2.Models;
 namespace project2.Migrations
 {
     [DbContext(typeof(AppointmentFormContext))]
-    [Migration("20220323220131_Initial")]
+    [Migration("20220324014551_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,6 +68,9 @@ namespace project2.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsTaken")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("TimeSlotID");
 
                     b.ToTable("TimeSlots");
@@ -75,68 +78,81 @@ namespace project2.Migrations
                     b.HasData(
                         new
                         {
+                            TimeSlotID = 1,
+                            AppointmentTime = "8:00 AM",
+                            IsTaken = false
+                        },
+                        new
+                        {
+                            TimeSlotID = 2,
+                            AppointmentTime = "9:00 AM",
+                            IsTaken = false
+                        },
+                        new
+                        {
+                            TimeSlotID = 3,
+                            AppointmentTime = "10:00 AM",
+                            IsTaken = false
+                        },
+                        new
+                        {
+                            TimeSlotID = 4,
+                            AppointmentTime = "11:00 AM",
+                            IsTaken = false
+                        },
+                        new
+                        {
+                            TimeSlotID = 5,
+                            AppointmentTime = "12:00 PM",
+                            IsTaken = false
+                        },
+                        new
+                        {
+                            TimeSlotID = 6,
+                            AppointmentTime = "1:00 PM",
+                            IsTaken = false
+                        },
+                        new
+                        {
+                            TimeSlotID = 7,
+                            AppointmentTime = "2:00 PM",
+                            IsTaken = false
+                        },
+                        new
+                        {
                             TimeSlotID = 8,
-                            AppointmentTime = "8:00"
+                            AppointmentTime = "3:00 PM",
+                            IsTaken = false
                         },
                         new
                         {
                             TimeSlotID = 9,
-                            AppointmentTime = "9:00"
+                            AppointmentTime = "4:00 PM",
+                            IsTaken = false
                         },
                         new
                         {
                             TimeSlotID = 10,
-                            AppointmentTime = "10:00"
+                            AppointmentTime = "5:00 PM",
+                            IsTaken = false
                         },
                         new
                         {
                             TimeSlotID = 11,
-                            AppointmentTime = "11:00"
+                            AppointmentTime = "6:00 PM",
+                            IsTaken = false
                         },
                         new
                         {
                             TimeSlotID = 12,
-                            AppointmentTime = "12:00"
+                            AppointmentTime = "7:00 PM",
+                            IsTaken = false
                         },
                         new
                         {
                             TimeSlotID = 13,
-                            AppointmentTime = "1:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 14,
-                            AppointmentTime = "2:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 15,
-                            AppointmentTime = "3:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 16,
-                            AppointmentTime = "4:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 17,
-                            AppointmentTime = "5:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 18,
-                            AppointmentTime = "6:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 19,
-                            AppointmentTime = "7:00"
-                        },
-                        new
-                        {
-                            TimeSlotID = 20,
-                            AppointmentTime = "8:00"
+                            AppointmentTime = "8:00 PM",
+                            IsTaken = false
                         });
                 });
 
