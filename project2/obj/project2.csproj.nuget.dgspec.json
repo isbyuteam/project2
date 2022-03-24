@@ -14,7 +14,7 @@
         "outputPath": "/Users/carsonhalls/Documents/GitHub/project2/project2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/carsonhalls/.nuget/NuGet/NuGet.Config"
+          "/Users/carsonhalls/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

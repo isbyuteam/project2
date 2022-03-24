@@ -31,7 +31,7 @@
                 <td>@x.TimeSlot.AppointmentTime</td>
 
                 <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentid="@x.AppointmentID" asp-route-timeslotid="@x.TimeSlotID">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-appointmentid="@x.AppointmentID" asp-route-timeslotid="@x.TimeSlotID">Delete</a></td>
+                <td><a class="text-danger" asp-controller="Home" asp-action="Delete" asp-route-appointmentid="@x.AppointmentID" asp-route-timeslotid="@x.TimeSlotID">Delete</a></td>
             </tr>
         }
 
