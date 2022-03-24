@@ -1,29 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Sign Up";
 }
+@model List<TimeSlot>
 
-@model TimeSlot
 
-<h1>Sign Up</h1>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Time</th>
+        </tr>
+    </thead>
 
-<form class="pt-2" method="post" asp-page="/AppointmentForm">
-    <input type="hidden" asp-for="@Model.TimeSlotID" />
 
-    @*<input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />*@
+    <tbody>
+        @foreach (var a in Model)
+        {
 
-    <span class="card-text">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">8 A.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">9 A.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">10 A.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">11 A.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">12 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">1 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">2 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">3 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">4 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">5 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">6 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">7 P.M.</button>
-        <button type="submit" class="btn btn-primary btn-lg btn-block">8 P.M.</button>
-    </span>
-</form>
+            <tr>
+                <td>@a.AppointmentTime</td>
+                <td><a class="btn btn-secondary" asp-controller="Home" asp-action="AppointmentForm" asp-route-timeslotid="@a.TimeSlotID">Sign Up</a></td>
+
+            </tr>
+        }
+
+        </tbody>
+</table>
+
+
+
