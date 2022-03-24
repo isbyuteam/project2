@@ -10,5 +10,6 @@ namespace project2.Models
         public int TimeSlotID { get; set; }
         [Required]
         public string AppointmentTime { get; set; }
+        public bool IsTaken { get; set; }
     }
 }

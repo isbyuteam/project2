@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using project2.Models;
+using project2.Models.ViewModels;
 
 namespace project2.Controllers
 {
@@ -26,7 +27,11 @@ namespace project2.Controllers
 
         public IActionResult SignUp()
         {
-            return View();
+            // get all times from the database and pass them as a parameter in view
+            var appointments = moneyContext.TimeSlots
+                .Where(x => x.IsTaken == false)
+                .ToList();
+            return View(appointments);
         }
 
         public IActionResult AppointmentsList()
@@ -42,7 +47,22 @@ namespace project2.Controllers
         [HttpGet]
         public IActionResult AppointmentForm()
         {
+            ViewBag.TimeSlots = moneyContext.TimeSlots.ToList();
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult AppointmentForm(int timeslotid)
+        {
+            var x = new AppointmentViewModel
+            {
+                //BUG HERE NOT WORKING> NEED TO FIX
+                //apt = FormContext.TimeSlots.FirstOrDefault(x => x.TimeSlotID == timeslotid),
+
+                times = new TimeSlot()
+            };
+
+            return View(x);
         }
 
         [HttpPost]
@@ -50,12 +70,15 @@ namespace project2.Controllers
         {
             if (ModelState.IsValid)
             {
-                //FormContext.Add(ar);
-                //FormContext.SaveChanges();
-                return Index();
+                //BUG NOT WORKING  NEED TO FIX VIEW MODELS
+                //FormContext.TimeSlots.Single(x => x.TimeSlotID == ar.timeslot.TimeSlots.TimeSlotID).Booked = true;
+                //FormContext.Add(ar.timeslot);
+                moneyContext.SaveChanges();
+                return View("Index");
             }
             else
             {
+                ViewBag.TimeSlots = moneyContext.TimeSlots.ToList();
                 return View();
             }
         }
