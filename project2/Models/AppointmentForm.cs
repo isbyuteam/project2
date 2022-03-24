@@ -16,5 +16,8 @@ namespace project2.Models
         [Required(ErrorMessage = "Email is Required")]
         public string Email { get; set; }
         public string Phone { get; set; }
+        
+        public int TimeSlotID { get; set; }
+        public TimeSlot TimeSlot { get; set; }
     }
 }
