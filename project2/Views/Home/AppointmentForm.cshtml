@@ -6,38 +6,40 @@
 
 <h1>Schedule Appointment</h1>
 
-<form method="post">
+<form method="post" asp-controller="Home" asp-action="AppointmentForm">
     <div asp-validation-summary="All"></div>
 
     <div class="form-group">
-        <label asp-for="TimeSlotID">Time Slot ID:</label>
-        <input asp-for="TimeSlotID" class="form-control" />
+
+
+        <input type="text" value="@ViewBag.Time" class="form-control" readonly />
+        <input type="hidden" asp-for="@Model.TimeSlotID" />
+        @*<input type="hidden" name="timeslotid" value="@Model.TimeSlotID" />*@
+
+
+        @*<input asp-for="@Model.apt.TimeSlot" class="form-control" value="@Model." />**@
     </div>
 
     <div class="form-group">
-        <label asp-for="TimeSlot">Time:</label>
-        <input asp-for="TimeSlot" class="form-control" />
+        <label asp-for="@Model.GroupName">Group Name</label>
+        <input asp-for="@Model.GroupName" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="GroupName">Group Name</label>
-        <input asp-for="GroupName" class="form-control" />
+        <label asp-for="@Model.GroupSize">Group Size(1-15)</label>
+        <input asp-for="@Model.GroupSize" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="GroupSize">Group Size(1-15)</label>
-        <input asp-for="GroupSize" class="form-control" />
+        <label asp-for="@Model.Email">Email</label>
+        <input asp-for="@Model.Email" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Phone">Phone Number</label>
-        <input asp-for="Phone" class="form-control" />
+        <label asp-for="@Model.Phone">Phone Number</label>
+        <input asp-for="@Model.Phone" class="form-control" />
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>

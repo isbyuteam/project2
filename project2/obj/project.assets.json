@@ -1344,19 +1344,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/carsonhalls/.nuget/packages/": {}
+    "/Users/kyliefromm/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/carsonhalls/Documents/GitHub/project2/project2/project2.csproj",
+      "projectUniqueName": "/Users/kyliefromm/project2/project2/project2.csproj",
       "projectName": "project2",
-      "projectPath": "/Users/carsonhalls/Documents/GitHub/project2/project2/project2.csproj",
-      "packagesPath": "/Users/carsonhalls/.nuget/packages/",
-      "outputPath": "/Users/carsonhalls/Documents/GitHub/project2/project2/obj/",
+      "projectPath": "/Users/kyliefromm/project2/project2/project2.csproj",
+      "packagesPath": "/Users/kyliefromm/.nuget/packages/",
+      "outputPath": "/Users/kyliefromm/project2/project2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/carsonhalls/.config/NuGet/NuGet.Config"
+        "/Users/kyliefromm/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1423,7 +1423,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.103/RuntimeIdentifierGraph.json"
       }
     }
   }
