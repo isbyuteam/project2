@@ -6,17 +6,15 @@
 
 <h1>Sign Up</h1>
 
-<form class="pt-2" method="post" asp-page="/AppointmentForm">
-    @*<input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />*@
 
-    <span class="card-text">
-        @foreach (var a in Model)
-        {
-            <button type="submit"
-                    class="btn btn-primary btn-lg btn-block"
-                    asp-controller="Home"
-                    asp-action="AppointmentForm"
-                    asp-route-timeslotid="@a.TimeSlotID">@a.AppointmentTime</button>
-        }
-    </span>
-</form>
+
+@foreach (var b in Model)
+{
+    <a class="btn btn-primary btn-lg btn-block" asp-controller="Home" asp-action="AppointmentForm" asp-route-timeslotid="@b.TimeSlotID">@b.AppointmentTime</a>
+                
+    @*<form class="pt-2" method="get" asp-action="AppointmentForm" asp-controller="Home">
+        <input type="hidden" name="timelslotid" value="@b.TimeSlotID" />
+        <button type="submit" class="btn btn-primary btn-lg btn-block">@b.AppointmentTime</button>
+    </form>*@
+}
+

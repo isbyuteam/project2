@@ -11,5 +11,6 @@ namespace project2.Models
         [Required]
         public string AppointmentTime { get; set; }
         public bool IsTaken { get; set; }
+        
     }
 }

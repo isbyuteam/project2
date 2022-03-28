@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using project2.Models;
@@ -25,54 +26,38 @@ namespace project2.Controllers
             return View();
         }
 
-        public IActionResult SignUp()
-        {
-            // get all times from the database and pass them as a parameter in view
-            var appointments = moneyContext.TimeSlots
-                .Where(x => x.IsTaken == false)
-                .ToList();
-            return View(appointments);
-        }
 
-        public IActionResult AppointmentsList()
-        {
-            var appointments = moneyContext.Responses
-                .Include(x => x.TimeSlot)
-                .OrderBy(x => x.TimeSlot.AppointmentTime)
-                .ToList();
+        //public IActionResult AppointmentForm()
+        //{
+        //    var appointments = moneyContext.TimeSlots
+        //        .ToList();
+        //    return View(appointments);
+        //}
 
-            return View(appointments);
-        }
 
-        [HttpGet]
-        public IActionResult AppointmentForm()
-        {
-            ViewBag.TimeSlots = moneyContext.TimeSlots.ToList();
-            return View();
-        }
 
         [HttpGet]
         public IActionResult AppointmentForm(int timeslotid)
         {
-            var x = new AppointmentViewModel
+            AppointmentForm af = new AppointmentForm
             {
-                //BUG HERE NOT WORKING> NEED TO FIX
-                //apt = FormContext.TimeSlots.FirstOrDefault(x => x.TimeSlotID == timeslotid),
-
-                times = new TimeSlot()
+                TimeSlotID = timeslotid
             };
 
-            return View(x);
+            ViewBag.Time = moneyContext.TimeSlots.FirstOrDefault(x =>
+                x.TimeSlotID == timeslotid).AppointmentTime;
+
+            return View(af);
         }
 
         [HttpPost]
-        public IActionResult AppointmentForm(AppointmentForm ar)
+        public IActionResult AppointmentForm(AppointmentForm  af)
         {
             if (ModelState.IsValid)
             {
                 //BUG NOT WORKING  NEED TO FIX VIEW MODELS
-                //FormContext.TimeSlots.Single(x => x.TimeSlotID == ar.timeslot.TimeSlots.TimeSlotID).Booked = true;
-                //FormContext.Add(ar.timeslot);
+               
+                moneyContext.Add(af);
                 moneyContext.SaveChanges();
                 return View("Index");
             }
@@ -83,6 +68,14 @@ namespace project2.Controllers
             }
         }
 
+        public IActionResult SignUp()
+        {
+            // get all times from the database and pass them as a parameter in view
+            var appointments = moneyContext.TimeSlots
+                .Where(x => x.IsTaken == false)
+                .ToList();
+            return View(appointments);
+        }
         [HttpGet]
         public IActionResult Edit(int appointmentid)
         {
@@ -91,6 +84,17 @@ namespace project2.Controllers
             var appointment = moneyContext.Responses.Single(x => x.AppointmentID == appointmentid);
 
             return View("AppointmentForm", appointment);
+        }
+
+
+        public IActionResult AppointmentsList()
+        {
+            var appointments = moneyContext.Responses
+                .Include(x => x.TimeSlot)
+                .OrderBy(x => x.TimeSlot.AppointmentTime)
+                .ToList();
+
+            return View(appointments);
         }
 
         [HttpPost]
